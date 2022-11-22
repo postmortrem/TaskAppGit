@@ -18,7 +18,6 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     Button btn = new Button("+");
     VBox vBox = new VBox(10);
-    VBox vBox1 = new VBox(10);
     Label label = new Label("Выберите тип задачи");
     Button Task = new Button("Task");
     Button Epic = new Button("Epic");
@@ -27,7 +26,6 @@ public class HelloApplication extends Application {
     String react;
 
     void addTaskCreate() {
-
         Stage newStage1 = new Stage();
         Scene addScene1 = new Scene(new VBox(), 200, 100);
         newStage1.setTitle("new Task");
@@ -38,10 +36,10 @@ public class HelloApplication extends Application {
         tf2.setPromptText("task description");
         Button ok = new Button("OK");
         System.out.println(react);
-        tf1.setOnAction((e -> react = tf1.getText()));
-//        tf2.setOnAction((e) -> );
+        tf1.setOnAction((e -> react = tf1.getPromptText()));
+        tf2.setOnAction((e) -> react = tf2.getPromptText() );
         System.out.println(react);
-//        .getChildren().addAll(tf1, tf2, ok);
+        this.vBox.getChildren().addAll(tf1, tf2, ok);
         ok.setOnAction((ae) -> newStage1.close());
         newStage1.show();
     }
@@ -57,10 +55,10 @@ public class HelloApplication extends Application {
         tf2.setPromptText("epic description");
         Button ok = new Button("OK");
         System.out.println(react);
-        tf1.setOnAction((e -> react = tf1.getText()));
+        tf1.setOnAction((e -> react = tf1.getPromptText()));
 //        tf2.setOnAction((e) -> );
         System.out.println(react);
-        vBox1.getChildren().addAll(tf1, tf2, ok);
+        this.vBox.getChildren().addAll(tf1, tf2, ok);
         ok.setOnAction((ae) -> newStage2.close());
         newStage2.show();
     }
@@ -76,10 +74,10 @@ public class HelloApplication extends Application {
         tf2.setPromptText("subtask description");
         Button ok = new Button("OK");
         System.out.println(react);
-        tf1.setOnAction((e -> react = tf1.getText()));
+        tf1.setOnAction((e -> react = tf1.getPromptText()));
 //        tf2.setOnAction((e) -> );
         System.out.println(react);
-        vBox1.getChildren().addAll(tf1, tf2, ok);
+        this.vBox.getChildren().addAll(tf1, tf2, ok);
         ok.setOnAction((ae) -> newStage3.close());
         newStage3.show();
     }
