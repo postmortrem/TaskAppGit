@@ -4,6 +4,7 @@ import com.example.taskapp.Managers.InMemoryTaskManager;
 import com.example.taskapp.Managers.Manager;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -100,15 +101,21 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FlowPane Root = new FlowPane(10, 10);
-        Root.setAlignment(Pos.BOTTOM_LEFT);
-        Scene scene = new Scene(Root, 500, 240);
-        stage.setTitle("TaskM");
-        stage.setScene(scene);
-        btn.setOnAction((ae) -> addTask());
-        Root.getChildren().addAll(btn);
-        stage.show();
-    }
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Zhopa.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+            stage.setTitle("Hello!");
+            stage.setScene(scene);
+            stage.show();
+        }
+
+//        FlowPane Root = new FlowPane(10, 10);
+//        Root.setAlignment(Pos.BOTTOM_LEFT);
+//        Scene scene = new Scene(Root, 500, 240);
+//        stage.setTitle("TaskM");
+//        stage.setScene(scene);
+//        btn.setOnAction((ae) -> addTask());
+//        Root.getChildren().addAll(btn);
+//        stage.show();
 
     public static void main(String[] args) {
         launch();
