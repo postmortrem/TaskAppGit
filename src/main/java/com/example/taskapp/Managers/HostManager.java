@@ -5,7 +5,7 @@ import com.example.taskapp.Tasks.Epic;
 import com.example.taskapp.Tasks.SubTask;
 import com.example.taskapp.Tasks.Task;
 
-public interface Manager {
+public interface HostManager { //мэнеджер с функционалом высшего звена
     String showTasks();
 
     Task createTask(String name, String description);

@@ -8,7 +8,7 @@ import com.example.taskapp.Tasks.Task;
 
 import java.util.ArrayList;
 
-public class InMemoryTaskManager implements Manager{
+public class InMemoryTaskHostManager implements HostManager {
     Integer managerId = 0;
 
     ArrayList<Task> taskArray = new ArrayList<>();
