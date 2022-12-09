@@ -8,10 +8,7 @@ public class Task {
     String description;
     public String state = "NEW";
     public static HashMap<Integer, Task> taskMap = new HashMap<>();
-
-    public void showEpicSubs(Integer id) {
-
-    }
+    
 
     Task() {
         id = 0;
@@ -62,5 +59,8 @@ public class Task {
 
     public void addToMap(Task task) {
         taskMap.put(id, task);
+    }
+
+    public void showEpicSubs() {
     }
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="148.0" prefWidth="239.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskapp.Controllers.AddTaskController">
+   <children>
+      <Button id="btn1" fx:id="btn1" layoutX="66.0" layoutY="109.0" mnemonicParsing="false"  prefHeight="25.0" prefWidth="46.0" text="OK" />
+      <Button id="btn2" fx:id="btn2" layoutX="120.0" layoutY="109.0" mnemonicParsing="false"  text="BACK" />
+      <PasswordField layoutX="45.0" layoutY="74.0" />
+      <PasswordField layoutX="45.0" layoutY="40.0" />
+      <MenuBar layoutY="-5.0" prefHeight="17.0" prefWidth="239.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>

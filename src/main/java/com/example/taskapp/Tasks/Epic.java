@@ -41,6 +41,10 @@ public class Epic extends Task {
         } else task.setState("IN PROGRESS");
     }
 
+    public void showEpicSubs(){
+        System.out.println(epicSubArray.toString());
+    }
+
     @Override
     public void addToMap(Task task) {
         epicMap.put(id, (Epic) task);

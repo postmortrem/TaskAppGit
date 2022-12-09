@@ -44,6 +44,10 @@ public class InMemoryTaskManager implements Manager{
         SubTask subtask = new SubTask(++managerId, epicId);
         subtask.setName(name);
         subtask.setDescription(descrip);
+        if (subtask.epicCheck(epicId) == null){
+            System.out.println("your subtask have no epic");
+            return null;
+        }else
         subtask.epicCheck(epicId);
         subtask.getState();
         subtask.addToMap(subtask);
@@ -95,5 +99,13 @@ public class InMemoryTaskManager implements Manager{
     @Override
     public void getHistory() {
 
+    }
+
+    public static void main(String[] args) {
+        InMemoryTaskManager one = new InMemoryTaskManager();
+        one.createEpic("new","Epic");
+        one.createSubTask("so","si", 2);
+        one.showTasks();
+        one.getById(1).showEpicSubs();
     }
 }

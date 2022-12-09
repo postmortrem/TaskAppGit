@@ -5,4 +5,6 @@ module com.example.taskapp {
 
     opens com.example.taskapp to javafx.fxml;
     exports com.example.taskapp;
+    exports com.example.taskapp.Controllers;
+    opens com.example.taskapp.Controllers to javafx.fxml;
 }
