@@ -2,9 +2,9 @@ package com.example.taskapp;
 
 import com.example.taskapp.Controllers.AddTaskController;
 import com.example.taskapp.Controllers.StartController;
-import com.example.taskapp.Interfaces.Subject;
 import com.example.taskapp.Managers.InMemoryTaskManager;
 import com.example.taskapp.Managers.Manager;
+import com.example.taskapp.Methods.SQLmethods.DatabaseMethods;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,10 +16,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.springframework.boot.SpringApplication;
+
 
 import java.io.IOException;
 
-public class TaskApplication extends Application implements Subject {
+
+
+public class TaskApplication extends Application{
 
     Label label = new Label("Выберите тип задачи");
     Button Task = new Button("Task");
@@ -124,6 +128,8 @@ public class TaskApplication extends Application implements Subject {
 
    public
    void createAdderControllerButton() throws IOException {
+        DatabaseMethods one = new DatabaseMethods();
+        one.taskCreateAndAddToDB();
         FXMLLoader loader = new FXMLLoader(TaskApplication.class.getResource("Mocha.fxml"));
         Scene newView = new Scene(loader.load());
         Stage stage = new Stage();

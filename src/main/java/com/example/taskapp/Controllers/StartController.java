@@ -12,11 +12,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 
+
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class StartController implements Initializable {
+public class StartController  {
 
     TaskApplication application = new TaskApplication();
 
@@ -34,6 +37,8 @@ public class StartController implements Initializable {
     public ListView<String> doneColumn;
     @FXML
     private Button btn;
+
+
 
     private void loadNewList() {
         newColumn.getItems().clear();
@@ -60,10 +65,18 @@ public class StartController implements Initializable {
         application.stop();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadNewList();
-    }
+//    @Override
+//    public void initialize(URL url, ResourceBundle resourceBundle) {
+//       // loadNewList(); если чето не работает - раскоментить
+//        preLoad();
+//    }
+//
+//    void preLoad(){
+//       TasksRepository pre = new TasksRepository();
+//        Iterable<TasksRepository> post =loadTasks.findAll();
+//        newList.addAll(post);
+//    }
+
 
     @FXML
     void createAdderControllerButton() throws IOException {
