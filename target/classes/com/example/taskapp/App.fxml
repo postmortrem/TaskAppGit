@@ -1,26 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutX="14.0" layoutY="14.0" prefHeight="308.0" prefWidth="179.0">
+      <VBox layoutX="14.0" layoutY="37.0" prefHeight="320.0" prefWidth="180.0">
          <children>
-            <Label alignment="CENTER" prefHeight="36.0" prefWidth="185.0" text="Tasks" textAlignment="CENTER">
+            <Label alignment="CENTER" prefHeight="36.0" prefWidth="185.0" text="NEW" textAlignment="CENTER">
                <font>
                   <Font name="Unispace-Bold" size="18.0" />
                </font></Label>
-            <Separator prefWidth="200.0" />
-            <ListView prefHeight="276.0" prefWidth="179.0" />
+            <Separator prefHeight="5.0" prefWidth="179.0" />
+            <TreeView prefHeight="283.0" prefWidth="180.0">
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
+            </TreeView>
          </children>
       </VBox>
-      <VBox layoutX="193.0" layoutY="18.0" prefHeight="308.0" prefWidth="200.0">
+      <Button id="plusButton" layoutX="14.0" layoutY="359.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="28.0" text="+" />
+      <VBox layoutX="210.0" layoutY="37.0" prefHeight="320.0" prefWidth="180.0">
          <children>
-            <Label text="Label" />
-         </children></VBox>
-      <VBox layoutX="393.0" layoutY="26.0" prefHeight="308.0" prefWidth="179.0" />
-      <Button layoutX="14.0" layoutY="342.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="47.0" text="+" />
+            <Label alignment="CENTER" prefHeight="36.0" prefWidth="185.0" text="IN PROGRESS" textAlignment="CENTER">
+               <font>
+                  <Font name="Unispace-Bold" size="18.0" />
+               </font>
+            </Label>
+            <Separator prefHeight="5.0" prefWidth="179.0" />
+            <TreeView prefHeight="283.0" prefWidth="180.0">
+               <contextMenu>
+                  <ContextMenu>
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                     </items>
+                  </ContextMenu>
+               </contextMenu>
+            </TreeView>
+         </children>
+      </VBox>
+      <VBox layoutX="406.0" layoutY="37.0" prefHeight="320.0" prefWidth="180.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="36.0" prefWidth="185.0" text="DONE" textAlignment="CENTER">
+               <font>
+                  <Font name="Unispace-Bold" size="18.0" />
+               </font>
+            </Label>
+            <Separator prefHeight="5.0" prefWidth="179.0" />
+            <TreeView prefHeight="283.0" prefWidth="180.0">
+               <contextMenu>
+                  <ContextMenu>
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                     </items>
+                  </ContextMenu>
+               </contextMenu>
+            </TreeView>
+         </children>
+      </VBox>
+      <MenuBar layoutY="1.0" prefHeight="27.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
    </children>
 </AnchorPane>
