@@ -1,13 +1,13 @@
 package com.example.taskapp.TaskFabric;
 
-import com.example.taskapp.Tasks.TaskInterface;
+import com.example.taskapp.Tasks.FabricTaskInterface;
 
 public abstract class MainFabric {
 
-    public void realizationOfFabric(){
-        TaskInterface one = createTask();
-        one.doSomething();
+    public void realizationOfFabric(String name, String description) {
+        FabricTaskInterface one = createTask(name, description);
+        one.doSomething(name, description);
     }
 
-    public abstract TaskInterface createTask();
+    public abstract FabricTaskInterface createTask(String name, String decription);
 }

@@ -13,9 +13,10 @@ public class TestOfFabric {
         subFabrique = new SubtaskFabric();
         fabrique = new TaskFabric();
         epicFabrique = new EpictaskFabric();
-        fabrique.realizationOfFabric();
-        subFabrique.realizationOfFabric();
-        epicFabrique.realizationOfFabric();
+        fabrique.realizationOfFabric("my task", "realisation of task fabique");
+        subFabrique.realizationOfFabric("subTask", "realisation");
+        epicFabrique.realizationOfFabric("1","2");
+        epicFabrique.realizationOfFabric("1","2");
 
         Epictask one = new Epictask();
         one.updateTask();
@@ -25,5 +26,6 @@ public class TestOfFabric {
         three.deleteTask();
         Task four = new Epictask();
         four.deleteTask();
+
     }
 }

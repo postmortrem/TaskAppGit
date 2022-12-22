@@ -1,11 +1,11 @@
 package com.example.taskapp.TaskFabric;
 
+import com.example.taskapp.Tasks.FabricTaskInterface;
 import com.example.taskapp.Tasks.Task;
-import com.example.taskapp.Tasks.TaskInterface;
 
 public class TaskFabric extends MainFabric{
     @Override
-    public TaskInterface createTask() {
-        return new Task();
+    public FabricTaskInterface createTask(String name, String description) {
+        return new Task(name, description);
     }
 }

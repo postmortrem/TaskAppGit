@@ -1,13 +1,15 @@
 package com.example.taskapp.Tasks;
 
+import com.example.taskapp.DBMethods.DataBaseInterface;
+import com.example.taskapp.DBMethods.taskDatabaseConnect;
 import com.example.taskapp.Managers.ManagerInterface;
-import com.example.taskapp.Managers.managerEpictask;
 import com.example.taskapp.Managers.managerTask;
 
-public class Task implements TaskInterface{
+public class Task implements FabricTaskInterface {
     String name, description;
     int id, state;
     ManagerInterface manager;
+    DataBaseInterface database; // есть подозрение что обьект интерфейса создаваемый в конструкторе видит все поля класса
 
     public Task() {
         manager = new managerTask();
@@ -54,19 +56,25 @@ public class Task implements TaskInterface{
         this.state = state;
     }
 
-    public void deleteTask(){
+    public void deleteTask() {
         manager.delete();
     }
 
-    public  void updateTask(){
+    public void updateTask() {
         manager.update();
     }
-    public void changeTask(){
+
+    public void changeTask() {
         manager.update();
     }
 
     @Override
-    public void doSomething() {
-        System.out.println("done task");
+    public void doSomething(String name, String description) {
+        addTaskToDatabase(name, description);
+    }
+
+    public void addTaskToDatabase(String name, String description) { // доработать
+        database = new taskDatabaseConnect();
+        database.taskCreateAndAddToDB(name, description);
     }
 }

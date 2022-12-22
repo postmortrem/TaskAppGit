@@ -1,14 +1,16 @@
 package com.example.taskapp.Tasks;
 
-import com.example.taskapp.Managers.ManagerInterface;
+import com.example.taskapp.DBMethods.DataBaseInterface;
+import com.example.taskapp.DBMethods.subtaskDatabaseConnect;
 import com.example.taskapp.Managers.managerSubtask;
 
-public class Subtask extends Task implements TaskInterface{
+public class Subtask extends Task {
     String name, description;
     int id, state;
+    DataBaseInterface database;
 
 
-    public Subtask(){
+    public Subtask() {
         manager = new managerSubtask();
     }
 
@@ -21,9 +23,14 @@ public class Subtask extends Task implements TaskInterface{
         this.description = description;
     }
 
+    @Override
+    public void doSomething(String name, String description) {
+        addTaskToDatabase(name, description);
+    }
 
     @Override
-    public void doSomething() {
-        System.out.println("done subtask");
+    public void addTaskToDatabase(String name, String description) { // доработать
+        database = new subtaskDatabaseConnect();
+        database.taskCreateAndAddToDB(name, description);
     }
 }
