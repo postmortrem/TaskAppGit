@@ -9,5 +9,5 @@ public abstract class MainFabric {
         one.doSomething(name, description);
     }
 
-    public abstract FabricTaskInterface createTask(String name, String decription);
+   protected abstract FabricTaskInterface createTask(String name, String decription);
 }

@@ -1,53 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
-<AnchorPane fx:id="addScene" pickOnBounds="false" prefHeight="94.0" prefWidth="247.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskapp.AddTask">
-   <children>
-      <Button layoutX="65.0" layoutY="117.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="OK" />
-      <Button layoutX="134.0" layoutY="117.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="Back" />
-      <TextField alignment="CENTER" layoutX="25.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="198.0" promptText="set task name">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <TextField alignment="CENTER" layoutX="25.0" layoutY="72.0" prefHeight="25.0" prefWidth="198.0" promptText="set task description">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="247.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-   </children>
-   <effect>
-      <Blend />
-   </effect>
-   <padding>
-      <Insets bottom="5.0" />
-   </padding>
+<AnchorPane fx:id="addScene" pickOnBounds="false" prefHeight="94.0" prefWidth="247.0"
+            xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.taskapp.AppStuff.Controllers.AddTaskController">
+    <children>
+        <Button fx:id="btn" onAction="#createTask" layoutX="65.0" layoutY="117.0" mnemonicParsing="false"
+                prefHeight="25.0" prefWidth="52.0" text="OK"/>
+        <Button fx:id="closebtn" onAction="#closeAddTask" layoutX="134.0" layoutY="117.0" mnemonicParsing="false"
+                prefHeight="25.0" prefWidth="52.0" text="Back"/>
+        <TextField fx:id="textfield1" alignment="CENTER" layoutX="25.0" layoutY="40.0" maxHeight="-Infinity"
+                   maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="198.0"
+                   promptText="set task name">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </TextField>
+        <TextField fx:id="textfield2" alignment="CENTER" layoutX="25.0" layoutY="72.0" prefHeight="25.0"
+                   prefWidth="198.0" promptText="set task description">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </TextField>
+        <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="247.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem onAction="#closeAddTask" mnemonicParsing="false" text="Close"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Delete"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </children>
+    <effect>
+        <Blend/>
+    </effect>
+    <padding>
+        <Insets bottom="5.0"/>
+    </padding>
 </AnchorPane>

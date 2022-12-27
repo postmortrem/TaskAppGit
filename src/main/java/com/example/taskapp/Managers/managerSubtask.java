@@ -17,8 +17,4 @@ public class managerSubtask implements ManagerInterface{
         System.out.println("subtask changed");
     }
 
-    @Override
-    public void getById(int id) {
-
-    }
 }

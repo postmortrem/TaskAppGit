@@ -32,5 +32,12 @@ public class Subtask extends Task {
     public void addTaskToDatabase(String name, String description) { // доработать
         database = new subtaskDatabaseConnect();
         database.taskCreateAndAddToDB(name, description);
+        getTaskFromDatabase();
+    }
+
+    @Override
+    public void getTaskFromDatabase() {
+       database = new subtaskDatabaseConnect();
+       System.out.println(database.taskGetFromDB());
     }
 }

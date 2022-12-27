@@ -9,13 +9,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Properties;
 
 public class subtaskDatabaseConnect implements DataBaseInterface {
+
+    String taskname;
 
     @Override
     public void taskCreateAndAddToDB(String name, String description) {
@@ -33,6 +32,25 @@ public class subtaskDatabaseConnect implements DataBaseInterface {
 
             System.out.println(ex);
         }
+    }
+
+    @Override
+    public String taskGetFromDB() {
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
+            try(Connection conn = createConnect()){
+                Statement statement = conn.createStatement();
+                ResultSet set =  statement.executeQuery("SELECT * FROM subtask");
+                while (set.next()) {
+                    String name = set.getString(2);
+                    taskname = name;
+                }
+            }
+        } catch(Exception ex){
+            System.out.println("Connection failed...");
+            System.out.println(ex);
+        }
+        return  taskname;
     }
 
     public static Connection createConnect() throws SQLException, IOException {

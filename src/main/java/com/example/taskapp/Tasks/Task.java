@@ -76,5 +76,11 @@ public class Task implements FabricTaskInterface {
     public void addTaskToDatabase(String name, String description) { // доработать
         database = new taskDatabaseConnect();
         database.taskCreateAndAddToDB(name, description);
+        getTaskFromDatabase();
+    }
+
+    public void getTaskFromDatabase(){
+        database = new taskDatabaseConnect();
+        System.out.println(database.taskGetFromDB());
     }
 }

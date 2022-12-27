@@ -16,8 +16,4 @@ public class managerTask implements ManagerInterface{
         System.out.println("task changed");
     }
 
-    @Override
-    public void getById(int id) {
-
-    }
 }

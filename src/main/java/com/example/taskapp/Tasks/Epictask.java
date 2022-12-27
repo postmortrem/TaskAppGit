@@ -33,5 +33,12 @@ public class Epictask extends Task {
     public void addTaskToDatabase(String name, String description) { // доработать
         database = new epictaskDatabaseConnect();
         database.taskCreateAndAddToDB(name, description);
+        getTaskFromDatabase();
+    }
+
+    @Override
+    public void getTaskFromDatabase(){
+        database = new epictaskDatabaseConnect();
+        System.out.println(database.taskGetFromDB());
     }
 }

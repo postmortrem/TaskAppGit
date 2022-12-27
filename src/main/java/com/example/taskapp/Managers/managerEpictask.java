@@ -17,8 +17,4 @@ public class managerEpictask implements ManagerInterface{
         System.out.println("epictask changed");
     }
 
-    @Override
-    public void getById(int id) {
-
-    }
 }

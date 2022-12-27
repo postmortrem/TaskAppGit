@@ -16,7 +16,7 @@ public class TestOfFabric {
         fabrique.realizationOfFabric("my task", "realisation of task fabique");
         subFabrique.realizationOfFabric("subTask", "realisation");
         epicFabrique.realizationOfFabric("1","2");
-        epicFabrique.realizationOfFabric("1","2");
+        epicFabrique.realizationOfFabric("sf","mid");
 
         Epictask one = new Epictask();
         one.updateTask();

@@ -8,6 +8,9 @@ import java.sql.*;
 import java.util.Properties;
 
 public class taskDatabaseConnect implements DataBaseInterface {
+
+    String taskname;
+
     @Override
     public void taskCreateAndAddToDB(String name, String description) {
         try {
@@ -24,6 +27,25 @@ public class taskDatabaseConnect implements DataBaseInterface {
 
             System.out.println(ex);
         }
+    }
+
+    @Override
+    public String taskGetFromDB() {
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
+            try(Connection conn = createConnect()){
+                Statement statement = conn.createStatement();
+                ResultSet set =  statement.executeQuery("SELECT * FROM task");
+                while (set.next()) {
+                    String name = set.getString(2);
+                    taskname = name;
+                }
+            }
+        } catch(Exception ex){
+            System.out.println("Connection failed...");
+            System.out.println(ex);
+        }
+        return  taskname;
     }
 
     public static Connection createConnect() throws SQLException, IOException {
