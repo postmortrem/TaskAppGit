@@ -5,16 +5,17 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Properties;
 
-public class taskDatabaseConnect implements DataBaseInterface {
+public class taskDatabaseConnect implements DAOTask {
 
     String taskname;
+    ArrayList<String> tasknames = new ArrayList<>();
 
     @Override
     public void taskCreateAndAddToDB(String name, String description) {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try (Connection conn = createConnect()) {
                 String sql = "INSERT task(name, description) values (?, ?)";
                 PreparedStatement preparedStatement = conn.prepareStatement(sql);
@@ -30,22 +31,29 @@ public class taskDatabaseConnect implements DataBaseInterface {
     }
 
     @Override
-    public String taskGetFromDB() {
+    public String getTaskName() {
+        tasknames.clear();
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try(Connection conn = createConnect()){
                 Statement statement = conn.createStatement();
                 ResultSet set =  statement.executeQuery("SELECT * FROM task");
                 while (set.next()) {
                     String name = set.getString(2);
                     taskname = name;
+                    tasknames.add(name);
                 }
             }
         } catch(Exception ex){
             System.out.println("Connection failed...");
             System.out.println(ex);
         }
+        System.out.println(tasknames.toString());
         return  taskname;
+    }
+
+    @Override
+    public ArrayList<String> getArrays() {
+        return tasknames;
     }
 
     public static Connection createConnect() throws SQLException, IOException {

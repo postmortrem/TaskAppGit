@@ -1,14 +1,13 @@
 package com.example.taskapp.Tasks;
 
-import com.example.taskapp.DBMethods.DataBaseInterface;
+import com.example.taskapp.DBMethods.DAOTask;
 import com.example.taskapp.DBMethods.epictaskDatabaseConnect;
-import com.example.taskapp.DBMethods.taskDatabaseConnect;
 import com.example.taskapp.Managers.managerEpictask;
 
 public class Epictask extends Task {
     String name, description;
     int id, state;
-    DataBaseInterface database;
+    DAOTask database;
 
 
     public Epictask() {
@@ -39,6 +38,6 @@ public class Epictask extends Task {
     @Override
     public void getTaskFromDatabase(){
         database = new epictaskDatabaseConnect();
-        System.out.println(database.taskGetFromDB());
+        System.out.println(database.getTaskName());
     }
 }

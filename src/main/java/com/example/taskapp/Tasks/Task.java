@@ -1,6 +1,6 @@
 package com.example.taskapp.Tasks;
 
-import com.example.taskapp.DBMethods.DataBaseInterface;
+import com.example.taskapp.DBMethods.DAOTask;
 import com.example.taskapp.DBMethods.taskDatabaseConnect;
 import com.example.taskapp.Managers.ManagerInterface;
 import com.example.taskapp.Managers.managerTask;
@@ -9,7 +9,7 @@ public class Task implements FabricTaskInterface {
     String name, description;
     int id, state;
     ManagerInterface manager;
-    DataBaseInterface database; // есть подозрение что обьект интерфейса создаваемый в конструкторе видит все поля класса
+    DAOTask database; // есть подозрение что обьект интерфейса создаваемый в конструкторе видит все поля класса
 
     public Task() {
         manager = new managerTask();
@@ -76,11 +76,11 @@ public class Task implements FabricTaskInterface {
     public void addTaskToDatabase(String name, String description) { // доработать
         database = new taskDatabaseConnect();
         database.taskCreateAndAddToDB(name, description);
-        getTaskFromDatabase();
     }
 
     public void getTaskFromDatabase(){
         database = new taskDatabaseConnect();
-        System.out.println(database.taskGetFromDB());
+        database.getTaskName();
+        System.out.println(database.getTaskName());
     }
 }

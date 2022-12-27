@@ -1,18 +1,14 @@
 package com.example.taskapp.DBMethods;
 
-import com.example.taskapp.TaskFabric.MainFabric;
-import com.example.taskapp.Tasks.FabricTaskInterface;
-import com.example.taskapp.TaskFabric.SubtaskFabric;
-import com.example.taskapp.Tasks.Subtask;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Properties;
 
-public class subtaskDatabaseConnect implements DataBaseInterface {
+public class subtaskDatabaseConnect implements DAOTask {
 
     String taskname;
 
@@ -35,7 +31,7 @@ public class subtaskDatabaseConnect implements DataBaseInterface {
     }
 
     @Override
-    public String taskGetFromDB() {
+    public String getTaskName() {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try(Connection conn = createConnect()){
@@ -51,6 +47,11 @@ public class subtaskDatabaseConnect implements DataBaseInterface {
             System.out.println(ex);
         }
         return  taskname;
+    }
+
+    @Override
+    public ArrayList getArrays() {
+        return null;
     }
 
     public static Connection createConnect() throws SQLException, IOException {

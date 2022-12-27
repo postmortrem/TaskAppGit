@@ -25,7 +25,7 @@
                         <ContextMenu>
                             <items>
                                 <MenuItem mnemonicParsing="false" text="update" fx:id="updateItem" onAction="#updateTreeview" />
-                                <MenuItem mnemonicParsing="false" text="delete"/>
+                                <MenuItem mnemonicParsing="false" text="delete" fx:id="deleteItem" onAction="#deleteTaskButton"/>
                                 <MenuItem mnemonicParsing="false" text="change"/>
                             </items>
                         </ContextMenu>
