@@ -5,6 +5,7 @@ import com.example.taskapp.AppStuff.TaskApplication;
 import com.example.taskapp.DBMethods.DAOTask;
 import com.example.taskapp.DBMethods.taskDatabaseConnect;
 import com.example.taskapp.Tasks.Task;
+import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -30,8 +31,11 @@ public class MainController{
     TreeView treeView2;
     @FXML
     TreeView treeView3;
+    @FXML
+    MenuItem aboutItem;
 
     Model model = new Model();
+    Application application = new TaskApplication();
 
     @FXML
     public void deleteTaskButton() {

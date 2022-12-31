@@ -1,5 +1,6 @@
 package com.example.taskapp.AppStuff.Controllers;
 
+import com.example.taskapp.AppStuff.Model;
 import com.example.taskapp.AppStuff.TaskApplication;
 import com.example.taskapp.TaskFabric.MainFabric;
 import com.example.taskapp.TaskFabric.TaskFabric;
@@ -20,18 +21,11 @@ public class AddTaskController {
     @FXML
     TextField textfield2;
 
-
-    static MainFabric subFabrique;
-    static MainFabric fabrique;
-    static MainFabric epicFabrique;
+    Model model = new Model();
 
     @FXML
     private void createTask(){
-        fabrique = new TaskFabric();
-        fabrique.realizationOfFabric(textfield1.getText(), textfield2.getText());
-        System.out.println(textfield1.getText()+ " " + textfield2.getText());
-        Stage stage = (Stage) closebtn.getScene().getWindow();
-        stage.close();
+        model.createTaskScene(textfield1,textfield2,closebtn);
     }
 
     @FXML
