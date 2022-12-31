@@ -1,13 +1,17 @@
 package com.example.taskapp.Tasks;
 
 import com.example.taskapp.DBMethods.DAOTask;
+
 import com.example.taskapp.DBMethods.taskDatabaseConnect;
+import com.example.taskapp.DBMethods.taskTable;
 import com.example.taskapp.Managers.ManagerInterface;
 import com.example.taskapp.Managers.managerTask;
 
 public class Task implements FabricTaskInterface {
+
     String name, description;
-    int id, state;
+    int id;
+    State state;
     ManagerInterface manager;
     DAOTask database; // есть подозрение что обьект интерфейса создаваемый в конструкторе видит все поля класса
 
@@ -17,11 +21,20 @@ public class Task implements FabricTaskInterface {
 
     public Task(String name) {
         this.name = name;
+        state = State.NEW;
     }
+
 
     public Task(String name, String description) {
         this.name = name;
         this.description = description;
+        state = State.NEW;
+    }
+    public Task(int id,String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        state = State.NEW;
     }
 
     public String getName() {
@@ -48,11 +61,11 @@ public class Task implements FabricTaskInterface {
         this.id = id;
     }
 
-    public int getState() {
+    public State getState() {
         return state;
     }
 
-    public void setState(int state) {
+    public void setState(State state) {
         this.state = state;
     }
 
@@ -75,12 +88,13 @@ public class Task implements FabricTaskInterface {
 
     public void addTaskToDatabase(String name, String description) { // доработать
         database = new taskDatabaseConnect();
+        database.setTaskTable(taskTable.newtask);
         database.taskCreateAndAddToDB(name, description);
     }
 
-    public void getTaskFromDatabase(){
+    public void getTaskNamesFromDatabase(){
         database = new taskDatabaseConnect();
-        database.getTaskName();
-        System.out.println(database.getTaskName());
+        database.getTaskNameArray();
+        System.out.println(database.getTaskNameArray());
     }
 }

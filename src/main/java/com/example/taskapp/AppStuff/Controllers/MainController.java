@@ -1,8 +1,10 @@
 package com.example.taskapp.AppStuff.Controllers;
 
+import com.example.taskapp.AppStuff.Model;
 import com.example.taskapp.AppStuff.TaskApplication;
 import com.example.taskapp.DBMethods.DAOTask;
 import com.example.taskapp.DBMethods.taskDatabaseConnect;
+import com.example.taskapp.Tasks.Task;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,8 +16,8 @@ import javafx.scene.control.TreeView;
 import java.io.IOException;
 
 
-public class MainController {
-    TaskApplication application = new TaskApplication();
+public class MainController{
+
     @FXML
     private Button plusButton;
     @FXML
@@ -29,18 +31,7 @@ public class MainController {
     @FXML
     TreeView treeView3;
 
-    TreeItem newTreeItem = new TreeItem("Tasks");
-
-    DAOTask DAOTask = new taskDatabaseConnect();
-
-    public void preview() {
-        treeView1.getRoot().getChildren().clear();
-        newTreeItem.getChildren().clear();
-        for (String e : DAOTask.getArrays()) {
-            newTreeItem.getChildren().add(new TreeItem(e));
-            treeView1.setRoot(newTreeItem);
-        }
-    }
+    Model model = new Model();
 
     @FXML
     public void deleteTaskButton() {
@@ -49,8 +40,7 @@ public class MainController {
 
     @FXML
     public void updateTreeview(ActionEvent event) {
-        treeItem1.setValue(DAOTask.getTaskName());
-        preview();
+        model.previewTask(treeView1,treeItem1);
     }
 
     @FXML
@@ -60,11 +50,11 @@ public class MainController {
 
     @FXML
     protected void about(ActionEvent event) {
-        application.getHostServices().showDocument("https://github.com/postmortrem");
+     model.gitHub();
     }
 
     @FXML
     protected void plusButtonClick(ActionEvent event) throws IOException {
-        application.addTaskScene();
+     model.addTaskScene();
     }
 }

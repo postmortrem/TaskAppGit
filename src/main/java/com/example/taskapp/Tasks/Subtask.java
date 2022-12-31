@@ -1,13 +1,15 @@
 package com.example.taskapp.Tasks;
 
 import com.example.taskapp.DBMethods.DAOTask;
-import com.example.taskapp.DBMethods.subtaskDatabaseConnect;
+import com.example.taskapp.DBMethods.taskDatabaseConnect;
+import com.example.taskapp.DBMethods.taskTable;
 import com.example.taskapp.Managers.managerSubtask;
 
 public class Subtask extends Task {
     String name, description;
-    int id, state;
+    int id;
     DAOTask database;
+    State state;
 
 
     public Subtask() {
@@ -21,6 +23,7 @@ public class Subtask extends Task {
     public Subtask(String name, String description) {
         this.name = name;
         this.description = description;
+        state = State.NEW;
     }
 
     @Override
@@ -30,14 +33,14 @@ public class Subtask extends Task {
 
     @Override
     public void addTaskToDatabase(String name, String description) { // доработать
-        database = new subtaskDatabaseConnect();
+        database = new taskDatabaseConnect();
+        database.setTaskTable(taskTable.subtask);
         database.taskCreateAndAddToDB(name, description);
-        getTaskFromDatabase();
     }
 
     @Override
-    public void getTaskFromDatabase() {
-       database = new subtaskDatabaseConnect();
-       System.out.println(database.getTaskName());
+    public void getTaskNamesFromDatabase() {
+       database = new taskDatabaseConnect();
+       System.out.println(database.getTaskNameArray());
     }
 }

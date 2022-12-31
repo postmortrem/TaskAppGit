@@ -1,6 +1,5 @@
 package com.example.taskapp.AppStuff.Controllers;
 
-import com.example.taskapp.AppStuff.ApplicationInterface;
 import com.example.taskapp.AppStuff.TaskApplication;
 import com.example.taskapp.TaskFabric.MainFabric;
 import com.example.taskapp.TaskFabric.TaskFabric;
@@ -10,7 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class AddTaskController {
-    TaskApplication application = new TaskApplication();
+
+
     @FXML
     Button btn;
     @FXML
