@@ -3,12 +3,9 @@ package com.example.taskapp.AppStuff;
 import com.example.taskapp.DBMethods.DAOTask;
 import com.example.taskapp.DBMethods.taskDatabaseConnect;
 import com.example.taskapp.TaskFabric.MainFabric;
+import com.example.taskapp.TaskFabric.SubtaskFabric;
 import com.example.taskapp.TaskFabric.TaskFabric;
 import com.example.taskapp.Tasks.Task;
-import javafx.application.Application;
-import javafx.application.HostServices;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -57,7 +54,7 @@ public class Model {
 
     public void createTaskScene(TextField textfield1, TextField textfield2, Button closebtn){
         fabrique = new TaskFabric();
-        fabrique.realizationOfFabric(textfield1.getText(), textfield2.getText());
+        fabrique.createTaskAndAddToDB(textfield1.getText(), textfield2.getText());
         System.out.println(textfield1.getText()+ " " + textfield2.getText());
         Stage stage = (Stage) closebtn.getScene().getWindow();
         stage.close();

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <AnchorPane fx:id="addScene" pickOnBounds="false" prefHeight="94.0" prefWidth="247.0"
-            xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.taskapp.AppStuff.Controllers.AddTaskController">
     <children>
         <Button fx:id="btn" onAction="#createTask" layoutX="65.0" layoutY="117.0" mnemonicParsing="false"

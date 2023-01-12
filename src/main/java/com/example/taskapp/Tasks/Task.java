@@ -7,7 +7,7 @@ import com.example.taskapp.DBMethods.taskTable;
 import com.example.taskapp.Managers.ManagerInterface;
 import com.example.taskapp.Managers.managerTask;
 
-public class Task implements FabricTaskInterface {
+public class Task implements TaskInterface {
 
     String name, description;
     int id;

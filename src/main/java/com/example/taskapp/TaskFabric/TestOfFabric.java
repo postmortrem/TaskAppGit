@@ -13,10 +13,10 @@ public class TestOfFabric {
         subFabrique = new SubtaskFabric();
         fabrique = new TaskFabric();
         epicFabrique = new EpictaskFabric();
-        fabrique.realizationOfFabric("my task", "realisation of task fabique");
-        subFabrique.realizationOfFabric("subTask", "realisation");
-        epicFabrique.realizationOfFabric("1","2");
-        epicFabrique.realizationOfFabric("sf","mid");
+        fabrique.createTaskAndAddToDB("my task", "realisation of task fabique");
+        subFabrique.createTaskAndAddToDB("subTask", "realisation");
+        epicFabrique.createTaskAndAddToDB("1","2");
+        epicFabrique.createTaskAndAddToDB("sf","mid");
 
         Epictask one = new Epictask();
         one.updateTask();

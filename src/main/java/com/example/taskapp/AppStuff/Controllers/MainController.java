@@ -35,7 +35,6 @@ public class MainController{
     MenuItem aboutItem;
 
     Model model = new Model();
-    Application application = new TaskApplication();
 
     @FXML
     public void deleteTaskButton() {
